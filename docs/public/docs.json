@@ -1,0 +1,144 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "claude-recall",
+  "description": "Persistent memory compression system that preserves context across Claude Code sessions",
+  "theme": "mint",
+  "favicon": "⚡",
+  "logo": {
+    "href": "https://github.com/nhevers/claude-recall"
+  },
+  "colors": {
+    "primary": "#3B82F6",
+    "light": "#EFF6FF",
+    "dark": "#1E40AF"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/nhevers/claude-recall"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Install",
+      "href": "https://github.com/nhevers/claude-recall#quick-start"
+    }
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Get Started",
+        "icon": "rocket",
+        "pages": [
+          "introduction",
+          "installation",
+          "usage/getting-started",
+          "usage/openrouter-provider",
+          "usage/gemini-provider",
+          "usage/search-tools",
+          "usage/claude-desktop",
+          "usage/private-tags",
+          "usage/export-import",
+          "usage/manual-recovery",
+          "usage/folder-context",
+          "beta-features",
+          "endless-mode"
+        ]
+      },
+      {
+        "group": "Cursor Integration",
+        "icon": "wand-magic-sparkles",
+        "pages": [
+          "cursor/index",
+          "cursor/gemini-setup",
+          "cursor/openrouter-setup"
+        ]
+      },
+      {
+        "group": "Best Practices",
+        "icon": "lightbulb",
+        "pages": [
+          "context-engineering",
+          "progressive-disclosure"
+        ]
+      },
+      {
+        "group": "Configuration & Development",
+        "icon": "gear",
+        "pages": [
+          "configuration",
+          "modes",
+          "development",
+          "troubleshooting",
+          "platform-integration"
+        ]
+      },
+      {
+        "group": "Architecture",
+        "icon": "diagram-project",
+        "pages": [
+          "architecture/overview",
+          "architecture-evolution",
+          "hooks-architecture",
+          "architecture/hooks",
+          "architecture/worker-service",
+          "architecture/database",
+          "architecture/search-architecture",
+          "architecture/pm2-to-bun-migration"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/nhevers/claude-recall"
+    },
+    "links": [
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "Documentation",
+            "href": "https://github.com/nhevers/claude-recall"
+          },
+          {
+            "label": "Issues",
+            "href": "https://github.com/nhevers/claude-recall/issues"
+          }
+        ]
+      },
+      {
+        "header": "Legal",
+        "items": [
+          {
+            "label": "License (AGPL-3.0)",
+            "href": "https://github.com/nhevers/claude-recall/blob/main/LICENSE"
+          }
+        ]
+      }
+    ]
+  },
+  "seo": {
+    "indexing": "all",
+    "metatags": {
+      "og:type": "website",
+      "og:site_name": "claude-recall Documentation",
+      "og:description": "Persistent memory compression system that preserves context across Claude Code sessions"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "cursor"
+    ]
+  },
+  "integrations": {
+    "telemetry": {
+      "enabled": false
+    }
+  }
+}
