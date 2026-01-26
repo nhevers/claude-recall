@@ -1,11 +1,14 @@
 # claude-recall
 
-Persistent memory for Claude Code. Captures session context and injects relevant history into future sessions.
+Persistent memory plugin for Claude Code. Captures session context and injects relevant history into future sessions.
+
+<img width="1376" height="768" alt="Untitled design (28)" src="https://github.com/user-attachments/assets/23bb84ed-8a6d-4933-ae8d-d8381090af6a" />
 
 ## Install
 
 ```bash
-claude install nhevers/claude-recall
+Step 1	/plugin marketplace add nhevers/claude-recall
+Step 2	/plugin install claude-recall
 ```
 
 ## How It Works
