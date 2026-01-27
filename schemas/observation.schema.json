@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://claude-recall.dev/schemas/observation.json",
+  "title": "Observation",
+  "description": "Schema for claude-recall observations",
+  "type": "object",
+  "required": ["type", "title"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique observation ID"
+    },
+    "session_id": {
+      "type": "string",
+      "description": "Parent session identifier"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["discovery", "decision", "implementation", "issue", "learning", "reference"],
+      "description": "Observation type"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Brief title summarizing the observation"
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Additional context or details"
+    },
+    "narrative": {
+      "type": "string",
+      "description": "Detailed narrative of what happened"
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key facts extracted from the interaction"
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Concept tags for categorization"
+    },
+    "files_read": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Files that were read during this observation"
+    },
+    "files_modified": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Files that were modified during this observation"
+    },
+    "project": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "prompt_number": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Prompt number within the session"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp"
+    },
+    "created_at_epoch": {
+      "type": "integer",
+      "description": "Unix timestamp in milliseconds"
+    },
+    "tokens_used": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Tokens consumed for this observation"
+    },
+    "is_favorite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this observation is bookmarked"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Custom user tags"
+    }
+  },
+  "additionalProperties": false
+}
