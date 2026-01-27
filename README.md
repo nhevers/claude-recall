@@ -30,6 +30,7 @@
   <a href="#-quick-install">Install</a> •
   <a href="#-features">Features</a> •
   <a href="#-how-it-works">How It Works</a> •
+  <a href="#-clawd-integration">Clawd</a> •
   <a href="#%EF%B8%8F-configuration">Config</a> •
   <a href="#-api">API</a>
 </p>
@@ -236,9 +237,13 @@ claude-recall/
 │   ├── favorites/         Bookmark system
 │   ├── filters/           Date/type/project filters
 │   ├── formatters/        Output formatters
+│   ├── mcp/               MCP server for Clawd
 │   ├── shortcuts/         Keyboard shortcuts
 │   ├── themes/            Theme system
 │   └── validators/        Input validation
+│
+├── 🦞 integrations/
+│   └── clawd/             Clawd extension & skill
 │
 ├── 📝 templates/          Export templates
 ├── 🧪 tests/              Test suites
@@ -274,13 +279,49 @@ curl "http://localhost:37777/api/stats"
 
 ---
 
+## 🦞 Clawd Integration
+
+Works with [Clawd](https://github.com/moltbot/moltbot) (62k+ stars) - the popular personal AI assistant!
+
+```
++-----------------------------------------------------------------------------+
+|                                                                             |
+|   EXTENSION        Add to Clawd's extensions/ folder                        |
+|   ----------       Full lifecycle hooks integration                         |
+|                                                                             |
+|   SKILL            Install as a Clawd skill                                 |
+|   ----------       recall_context, search_memories, save_memory tools       |
+|                                                                             |
+|   MCP SERVER       Protocol-based integration                               |
+|   ----------       Works with any MCP-compatible client                     |
+|                                                                             |
++-----------------------------------------------------------------------------+
+```
+
+**Quick setup:**
+
+```bash
+# As Clawd extension
+cd ~/.clawd/extensions
+git clone https://github.com/nhevers/claude-recall.git
+
+# Or via MCP
+npm run mcp:start
+```
+
+See [integrations/clawd/README.md](integrations/clawd/README.md) for full setup guide.
+
+<br>
+
+---
+
 ## 📋 Requirements
 
 ```
 ╔══════════════════════════════════════╗
 ║                                      ║
 ║   •  Node.js 18+  or  Bun 1.0+      ║
-║   •  Claude Code                     ║
+║   •  Claude Code  or  Clawd          ║
 ║                                      ║
 ╚══════════════════════════════════════╝
 ```
@@ -302,7 +343,7 @@ AGPL-3.0
 </p>
 
 <p align="center">
-  <strong>Built with ❤️ for the Claude Code community</strong>
+  <strong>Built with care for the Claude Code & Clawd community</strong>
 </p>
 
 <p align="center">
