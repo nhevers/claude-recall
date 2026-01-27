@@ -1,0 +1,66 @@
+{
+  "$schema": "https://clawd.bot/schemas/skill.json",
+  "name": "claude-recall",
+  "version": "1.0.0",
+  "displayName": "Claude Recall Memory",
+  "description": "Long-term memory layer that learns and recalls your project context automatically",
+  "author": "nhevers",
+  "repository": "https://github.com/nhevers/claude-recall",
+  "license": "MIT",
+  "category": "memory",
+  "tags": ["memory", "context", "recall", "learning"],
+  "icon": "🧠",
+  "capabilities": {
+    "memory": {
+      "search": true,
+      "recall": true,
+      "save": true,
+      "timeline": true
+    },
+    "hooks": {
+      "onMessage": true,
+      "onResponse": true,
+      "onSessionStart": true,
+      "onSessionEnd": true
+    }
+  },
+  "config": {
+    "dataDir": {
+      "type": "string",
+      "description": "Directory to store memory data",
+      "default": ".claude-recall"
+    },
+    "maxMemories": {
+      "type": "number",
+      "description": "Maximum memories to inject per context",
+      "default": 10
+    },
+    "autoCapture": {
+      "type": "boolean",
+      "description": "Automatically capture observations from conversations",
+      "default": true
+    },
+    "channels": {
+      "type": "array",
+      "description": "Channels to enable memory for (empty = all)",
+      "default": []
+    }
+  },
+  "tools": [
+    {
+      "name": "recall_context",
+      "description": "Retrieve relevant memories based on current context"
+    },
+    {
+      "name": "search_memories",
+      "description": "Search through stored memories"
+    },
+    {
+      "name": "save_memory",
+      "description": "Manually save an important piece of information"
+    }
+  ],
+  "dependencies": {
+    "clawdbot": ">=2026.1.0"
+  }
+}
