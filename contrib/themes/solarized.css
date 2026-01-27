@@ -1,0 +1,186 @@
+/**
+ * Solarized Theme for claude-recall
+ * 
+ * Based on the Solarized color scheme by Ethan Schoonover
+ * https://ethanschoonover.com/solarized/
+ * 
+ * This theme provides both light and dark variants using
+ * the classic Solarized palette.
+ */
+
+/* Solarized Dark */
+:root[data-theme="solarized-dark"],
+.theme-solarized-dark {
+  /* Base colors */
+  --base03: #002b36;
+  --base02: #073642;
+  --base01: #586e75;
+  --base00: #657b83;
+  --base0: #839496;
+  --base1: #93a1a1;
+  --base2: #eee8d5;
+  --base3: #fdf6e3;
+  
+  /* Accent colors */
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+  
+  /* Semantic mappings */
+  --bg-primary: var(--base03);
+  --bg-secondary: var(--base02);
+  --bg-tertiary: #0a3d4a;
+  --text-primary: var(--base0);
+  --text-secondary: var(--base01);
+  --text-muted: var(--base00);
+  --border-color: var(--base01);
+  --border-light: #0a4050;
+  
+  /* Accent mappings */
+  --accent-primary: var(--blue);
+  --accent-secondary: var(--cyan);
+  --accent-success: var(--green);
+  --accent-warning: var(--yellow);
+  --accent-error: var(--red);
+  --accent-info: var(--violet);
+  
+  /* Observation type colors */
+  --type-discovery: var(--blue);
+  --type-decision: var(--violet);
+  --type-implementation: var(--green);
+  --type-issue: var(--red);
+  --type-learning: var(--yellow);
+  --type-reference: var(--cyan);
+  
+  /* Interactive states */
+  --hover-bg: var(--base02);
+  --active-bg: #0a4050;
+  --focus-ring: var(--blue);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Solarized Light */
+:root[data-theme="solarized-light"],
+.theme-solarized-light {
+  /* Base colors (inverted) */
+  --base03: #fdf6e3;
+  --base02: #eee8d5;
+  --base01: #93a1a1;
+  --base00: #839496;
+  --base0: #657b83;
+  --base1: #586e75;
+  --base2: #073642;
+  --base3: #002b36;
+  
+  /* Accent colors (same) */
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+  
+  /* Semantic mappings */
+  --bg-primary: var(--base03);
+  --bg-secondary: var(--base02);
+  --bg-tertiary: #e6dfcb;
+  --text-primary: var(--base0);
+  --text-secondary: var(--base1);
+  --text-muted: var(--base00);
+  --border-color: var(--base01);
+  --border-light: #d6ceb5;
+  
+  /* Accent mappings */
+  --accent-primary: var(--blue);
+  --accent-secondary: var(--cyan);
+  --accent-success: var(--green);
+  --accent-warning: var(--yellow);
+  --accent-error: var(--red);
+  --accent-info: var(--violet);
+  
+  /* Observation type colors */
+  --type-discovery: var(--blue);
+  --type-decision: var(--violet);
+  --type-implementation: var(--green);
+  --type-issue: var(--red);
+  --type-learning: var(--yellow);
+  --type-reference: var(--cyan);
+  
+  /* Interactive states */
+  --hover-bg: var(--base02);
+  --active-bg: #d6ceb5;
+  --focus-ring: var(--blue);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Component overrides for Solarized */
+.theme-solarized-dark .observation-card,
+.theme-solarized-light .observation-card {
+  border-left-width: 3px;
+}
+
+.theme-solarized-dark .observation-card[data-type="discovery"],
+.theme-solarized-light .observation-card[data-type="discovery"] {
+  border-left-color: var(--type-discovery);
+}
+
+.theme-solarized-dark .observation-card[data-type="decision"],
+.theme-solarized-light .observation-card[data-type="decision"] {
+  border-left-color: var(--type-decision);
+}
+
+.theme-solarized-dark .observation-card[data-type="implementation"],
+.theme-solarized-light .observation-card[data-type="implementation"] {
+  border-left-color: var(--type-implementation);
+}
+
+.theme-solarized-dark .observation-card[data-type="issue"],
+.theme-solarized-light .observation-card[data-type="issue"] {
+  border-left-color: var(--type-issue);
+}
+
+.theme-solarized-dark .observation-card[data-type="learning"],
+.theme-solarized-light .observation-card[data-type="learning"] {
+  border-left-color: var(--type-learning);
+}
+
+/* Code blocks */
+.theme-solarized-dark pre,
+.theme-solarized-dark code {
+  background: var(--base02);
+  color: var(--base0);
+}
+
+.theme-solarized-light pre,
+.theme-solarized-light code {
+  background: var(--base02);
+  color: var(--base0);
+}
+
+/* Syntax highlighting hints */
+.theme-solarized-dark .token-keyword { color: var(--green); }
+.theme-solarized-dark .token-string { color: var(--cyan); }
+.theme-solarized-dark .token-number { color: var(--magenta); }
+.theme-solarized-dark .token-comment { color: var(--base01); }
+.theme-solarized-dark .token-function { color: var(--blue); }
+
+.theme-solarized-light .token-keyword { color: var(--green); }
+.theme-solarized-light .token-string { color: var(--cyan); }
+.theme-solarized-light .token-number { color: var(--magenta); }
+.theme-solarized-light .token-comment { color: var(--base01); }
+.theme-solarized-light .token-function { color: var(--blue); }
