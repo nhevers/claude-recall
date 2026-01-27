@@ -1,0 +1,51 @@
+{
+  "name": "claude-recall-clawd",
+  "version": "1.0.0",
+  "description": "Claude Recall memory extension for Clawd",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "keywords": [
+    "clawd",
+    "moltbot",
+    "claude-recall",
+    "memory",
+    "ai-assistant",
+    "extension"
+  ],
+  "author": "nhevers",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhevers/claude-recall.git",
+    "directory": "integrations/clawd"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "clawdbot": ">=2026.1.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "clawd": {
+    "type": "extension",
+    "name": "claude-recall",
+    "displayName": "Claude Recall Memory",
+    "description": "Long-term memory layer that learns and recalls your context",
+    "version": "1.0.0",
+    "hooks": [
+      "onMessage",
+      "onResponse",
+      "onSessionStart",
+      "onSessionEnd"
+    ],
+    "capabilities": [
+      "memory.search",
+      "memory.recall",
+      "memory.save"
+    ]
+  }
+}
