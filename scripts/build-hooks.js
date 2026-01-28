@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const ENGINE_SERVICE = {
-  name: 'engine-runtime',
+  name: 'worker-service',
   source: 'src/core/engine-service.ts'
 };
 
@@ -104,7 +104,7 @@ async function buildHooks() {
     // Make engine service executable
     fs.chmodSync(`${hooksDir}/${ENGINE_SERVICE.name}.cjs`, 0o755);
     const engineStats = fs.statSync(`${hooksDir}/${ENGINE_SERVICE.name}.cjs`);
-    console.log(`✓ engine-runtime built (${(engineStats.size / 1024).toFixed(2)} KB)`);
+    console.log(`✓ worker-service built (${(engineStats.size / 1024).toFixed(2)} KB)`);
 
     // Build search server
     console.log(`\n🔧 Building search server...`);
@@ -153,7 +153,7 @@ async function buildHooks() {
 
     console.log('\n✅ Worker service, MCP server, and context generator built successfully!');
     console.log(`   Output: ${hooksDir}/`);
-    console.log(`   - Worker: engine-runtime.cjs`);
+    console.log(`   - Worker: worker-service.cjs`);
     console.log(`   - MCP Server: search-server.cjs`);
     console.log(`   - Context Generator: builder-runtime.cjs`);
 
