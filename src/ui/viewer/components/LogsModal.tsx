@@ -16,23 +16,23 @@ interface ParsedLogLine {
 
 // Configuration for log levels
 const LOG_LEVELS: { key: LogLevel; label: string; icon: string; color: string }[] = [
-  { key: 'DEBUG', label: 'Debug', icon: '🔍', color: '#8b8b8b' },
-  { key: 'INFO', label: 'Info', icon: 'ℹ️', color: '#58a6ff' },
-  { key: 'WARN', label: 'Warn', icon: '⚠️', color: '#d29922' },
-  { key: 'ERROR', label: 'Error', icon: '❌', color: '#f85149' },
+  { key: 'DEBUG', label: 'Debug', icon: '', color: '#FF6B35' },
+  { key: 'INFO', label: 'Info', icon: '', color: '#FF6B35' },
+  { key: 'WARN', label: 'Warn', icon: '', color: '#FF6B35' },
+  { key: 'ERROR', label: 'Error', icon: '', color: '#FF6B35' },
 ];
 
 // Configuration for log components
 const LOG_COMPONENTS: { key: LogComponent; label: string; icon: string; color: string }[] = [
-  { key: 'HOOK', label: 'Hook', icon: '🪝', color: '#a371f7' },
-  { key: 'WORKER', label: 'Worker', icon: '⚙️', color: '#58a6ff' },
-  { key: 'SDK', label: 'SDK', icon: '📦', color: '#3fb950' },
-  { key: 'PARSER', label: 'Parser', icon: '📄', color: '#79c0ff' },
-  { key: 'DB', label: 'DB', icon: '🗄️', color: '#f0883e' },
-  { key: 'SYSTEM', label: 'System', icon: '💻', color: '#8b949e' },
-  { key: 'HTTP', label: 'HTTP', icon: '🌐', color: '#39d353' },
-  { key: 'SESSION', label: 'Session', icon: '📋', color: '#db61a2' },
-  { key: 'CHROMA', label: 'Chroma', icon: '🔮', color: '#a855f7' },
+  { key: 'HOOK', label: 'Hook', icon: '', color: '#FF6B35' },
+  { key: 'WORKER', label: 'Worker', icon: '', color: '#FF6B35' },
+  { key: 'SDK', label: 'SDK', icon: '', color: '#FF6B35' },
+  { key: 'PARSER', label: 'Parser', icon: '', color: '#FF6B35' },
+  { key: 'DB', label: 'DB', icon: '', color: '#FF6B35' },
+  { key: 'SYSTEM', label: 'System', icon: '', color: '#FF6B35' },
+  { key: 'HTTP', label: 'HTTP', icon: '', color: '#FF6B35' },
+  { key: 'SESSION', label: 'Session', icon: '', color: '#FF6B35' },
+  { key: 'CHROMA', label: 'Chroma', icon: '', color: '#FF6B35' },
 ];
 
 // Parse a single log line into structured data
@@ -313,11 +313,11 @@ export function LogsDrawer({ isOpen, onClose }: LogsDrawerProps) {
         <span className="log-timestamp">[{line.timestamp}]</span>
         {' '}
         <span className="log-level" style={{ color: levelConfig?.color }} title={line.level}>
-          [{levelConfig?.icon || ''} {line.level?.padEnd(5)}]
+          [{line.level?.padEnd(5)}]
         </span>
         {' '}
         <span className="log-component" style={{ color: componentConfig?.color }} title={line.component}>
-          [{componentConfig?.icon || ''} {line.component?.padEnd(7)}]
+          [{line.component?.padEnd(7)}]
         </span>
         {' '}
         {line.correlationId && (
@@ -398,11 +398,11 @@ export function LogsDrawer({ isOpen, onClose }: LogsDrawerProps) {
               className={`console-filter-chip ${alignmentOnly ? 'active' : ''}`}
               onClick={() => setAlignmentOnly(!alignmentOnly)}
               style={{
-                '--chip-color': '#f0883e',
+                '--chip-color': '#FF6B35',
               } as React.CSSProperties}
               title="Show only session alignment logs"
             >
-              🔗 Alignment
+              Alignment
             </button>
           </div>
         </div>
@@ -419,7 +419,7 @@ export function LogsDrawer({ isOpen, onClose }: LogsDrawerProps) {
                 } as React.CSSProperties}
                 title={level.label}
               >
-                {level.icon} {level.label}
+                {level.label}
               </button>
             ))}
             <button
@@ -444,7 +444,7 @@ export function LogsDrawer({ isOpen, onClose }: LogsDrawerProps) {
                 } as React.CSSProperties}
                 title={comp.label}
               >
-                {comp.icon} {comp.label}
+                {comp.label}
               </button>
             ))}
             <button
@@ -460,7 +460,7 @@ export function LogsDrawer({ isOpen, onClose }: LogsDrawerProps) {
 
       {error && (
         <div className="console-error">
-          ⚠ {error}
+          {error}
         </div>
       )}
 
