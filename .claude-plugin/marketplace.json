@@ -1,10 +1,10 @@
 {
   "name": "nhevers",
   "owner": {
-    "name": ""
+    "name": "nhevers"
   },
   "metadata": {
-    "description": "Plugins by  (nhevers)",
+    "description": "Plugins by nhevers",
     "homepage": "https://github.com/nhevers/claude-recall"
   },
   "plugins": [
