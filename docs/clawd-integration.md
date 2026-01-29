@@ -6,7 +6,7 @@ This guide covers integrating claude-recall with [MoltBot](https://github.com/mo
 
 Claude Recall provides three integration methods for MoltBot:
 
-1. **Extension**: Full integration with Clawd's extension system
+1. **Extension**: Full integration with MoltBot's extension system
 2. **Skill**: Lightweight tool-based integration
 3. **MCP Server**: Protocol-based integration for advanced setups
 
@@ -14,29 +14,61 @@ Claude Recall provides three integration methods for MoltBot:
 
 ### Extension (Recommended)
 
+#### For Bundled Installation
+
+If you're using MoltBot from source or have cloned the repository:
+
 ```bash
-# Clone into MoltBot extensions
-cd ~/.moltbot/extensions
-git clone https://github.com/nhevers/claude-recall.git
+# Clone into MoltBot extensions directory
+cd your-moltbot-installation/extensions
+git clone https://github.com/nhevers/claude-recall.git claude-recall
 
 # Build the extension
 cd claude-recall/integrations/clawd
 npm install && npm run build
 ```
 
-Add to `~/.moltbot/config.json`:
+**Important:** Enable the plugin (bundled plugins are disabled by default):
+
+```bash
+pnpm moltbot plugins enable claude-recall
+```
+
+Add to MoltBot config:
 
 ```json
 {
-  "extensions": {
-    "claude-recall": {
-      "enabled": true
+  "plugins": {
+    "entries": {
+      "claude-recall": {
+        "enabled": true,
+        "config": {
+          "dataDir": ".claude-recall",
+          "maxMemories": 10,
+          "autoCapture": true
+        }
+      }
     }
   }
 }
 ```
 
-Restart MoltBot and you're done!
+#### For Standalone Installation
+
+```bash
+# Clone into user extensions directory
+cd ~/.moltbot/extensions
+git clone https://github.com/nhevers/claude-recall.git claude-recall
+
+# Build the extension
+cd claude-recall/integrations/clawd
+npm install && npm run build
+
+# Enable the plugin
+pnpm moltbot plugins enable claude-recall
+```
+
+Restart MoltBot gateway and you're done!
 
 ## How It Works
 
@@ -85,17 +117,22 @@ Before each response, claude-recall searches for relevant memories and injects t
 
 ```json
 {
-  "extensions": {
-    "claude-recall": {
-      "enabled": true,
-      "dataDir": ".claude-recall",
-      "maxMemories": 10,
-      "autoCapture": true,
-      "channels": []
+  "plugins": {
+    "entries": {
+      "claude-recall": {
+        "enabled": true,
+        "config": {
+          "dataDir": ".claude-recall",
+          "maxMemories": 10,
+          "autoCapture": true
+        }
+      }
     }
   }
 }
 ```
+
+**Note:** The plugin must be explicitly enabled using `pnpm moltbot plugins enable claude-recall` if it's installed as a bundled extension (in MoltBot's `extensions/` directory).
 
 ### Skill Config
 
@@ -181,23 +218,48 @@ Limit memory capture to specific channels:
 
 ## Troubleshooting
 
+### Plugin Not Loading
+
+**Problem:** Plugin shows as "disabled" in `pnpm moltbot plugins list`
+
+**Solution:**
+1. Enable the plugin: `pnpm moltbot plugins enable claude-recall`
+2. Restart the MoltBot gateway
+3. Verify in config: `plugins.entries.claude-recall.enabled` should be `true`
+
+### Tools Not Appearing
+
+**Problem:** Tools (`recall_context`, `search_memories`, `save_memory`) don't appear in agent's tool list
+
+**Solution:**
+1. Verify plugin is enabled (see above)
+2. Rebuild TypeScript: `npm run build` or `pnpm tsc`
+3. Restart MoltBot gateway
+4. Check logs for registration messages: `[claude-recall] Extension register() called`
+
 ### Memories Not Being Captured
 
-1. Check `autoCapture` is `true`
+1. Check `autoCapture` is `true` in config
 2. Verify the channel is enabled
 3. Check logs for errors
+4. Ensure plugin is enabled and loaded
 
 ### Context Not Being Injected
 
-1. Verify memories exist: `search_memories("*")`
+1. Verify memories exist: Use `search_memories` tool
 2. Check `maxMemories` setting
-3. Ensure extension is loaded
+3. Ensure extension is loaded and enabled
+4. Check that tools are available to the agent
 
 ### MCP Connection Issues
 
 1. Verify server is running: `npm run mcp:status`
 2. Check port availability (default: 3847)
 3. Review MCP logs
+
+### Bundled Plugin Disabled by Default
+
+**Note:** If the extension is installed in MoltBot's `extensions/` directory (bundled), it will be disabled by default. You must explicitly enable it using `pnpm moltbot plugins enable claude-recall`.
 
 ## Performance
 
