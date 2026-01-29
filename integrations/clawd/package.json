@@ -1,12 +1,12 @@
 {
-  "name": "claude-recall-clawd",
+  "name": "claude-recall-moltbot",
   "version": "1.0.0",
-  "description": "Claude Recall memory extension for Clawd",
+  "description": "Claude Recall memory extension for MoltBot",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "keywords": [
-    "clawd",
+    "moltbot",
     "moltbot",
     "claude-recall",
     "memory",
@@ -24,13 +24,13 @@
     "node": ">=18.0.0"
   },
   "peerDependencies": {
-    "clawdbot": ">=2026.1.0"
+    "moltbot": ">=2026.1.0"
   },
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch"
   },
-  "clawd": {
+  "moltbot": {
     "type": "extension",
     "name": "claude-recall",
     "displayName": "Claude Recall Memory",

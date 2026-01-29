@@ -1,5 +1,5 @@
 {
-  "$schema": "https://clawd.bot/schemas/skill.json",
+  "$schema": "https://molt.bot/schemas/skill.json",
   "name": "claude-recall",
   "version": "1.0.0",
   "displayName": "Claude Recall Memory",
@@ -61,6 +61,6 @@
     }
   ],
   "dependencies": {
-    "clawdbot": ">=2026.1.0"
+    "moltbot": ">=2026.1.0"
   }
 }
