@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong>Long-term memory layer for Claude Code that learns and recalls your project context automatically.</strong>
+  <strong>Long-term memory layer for MoltBot & Claude Code that learns and recalls your project context automatically.</strong>
 </p>
 
 <p align="center">
