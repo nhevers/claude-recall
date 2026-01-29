@@ -1,6 +1,6 @@
 /**
- * Clawd Lifecycle Hooks
- * Integrates claude-recall with Clawd's agent loop
+ * MoltBot Lifecycle Hooks
+ * Integrates claude-recall with MoltBot's agent loop
  */
 
 import type { ClawdExtensionContext, ClawdMessage, ClawdResponse, ClawdSession } from './index.js';

@@ -1,6 +1,6 @@
 /**
- * Claude Recall Extension for Clawd
- * Provides long-term memory capabilities across all Clawd channels
+ * Claude Recall Extension for MoltBot
+ * Provides long-term memory capabilities across all MoltBot channels
  */
 
 import { ClawdHooks } from './hooks.js';

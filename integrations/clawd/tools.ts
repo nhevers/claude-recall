@@ -1,6 +1,6 @@
 /**
- * Clawd Skill Tools
- * Memory tools that can be invoked by Clawd
+ * MoltBot Skill Tools
+ * Memory tools that can be invoked by MoltBot
  */
 
 import type { ClawdExtensionContext } from './index.js';
@@ -36,7 +36,7 @@ export class MemorySkill {
   }
 
   /**
-   * Get skill definition for Clawd
+   * Get skill definition for MoltBot
    */
   getDefinition() {
     return {
