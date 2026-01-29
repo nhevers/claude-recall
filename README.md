@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong>Long-term memory layer for MoltBot & Claude Code that learns and recalls your project context automatically. Claude Recall has been tokenized on Solana ($RECALL tba). </strong>
+  <strong>Long-term memory layer for MoltBot & Claude Code that learns and recalls your project context automatically. Claude Recall has been tokenized on Solana ($RECALL 3a8qXfAcUtZbJj3mvpnREzyU9p2eERHGKpWPA4kspump). </strong>
 </p>
 
 <p align="center">
