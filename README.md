@@ -263,17 +263,17 @@ curl "http://localhost:37777/api/stats"
 
 ---
 
-## 🦞 Clawd Integration
+## 🦞 MoltBot Integration
 
-Works with [Clawd](https://github.com/moltbot/moltbot) (62k+ stars) - the popular personal AI assistant!
+Works with [MoltBot](https://github.com/moltbot/moltbot) (97k+ stars) - the popular personal AI assistant!
 
 ```
 +-----------------------------------------------------------------------------+
 |                                                                             |
-|   EXTENSION        Add to Clawd's extensions/ folder                        |
+|   EXTENSION        Add to MoltBot's extensions/ folder                     |
 |   ----------       Full lifecycle hooks integration                         |
 |                                                                             |
-|   SKILL            Install as a Clawd skill                                 |
+|   SKILL            Install as a MoltBot skill                                |
 |   ----------       recall_context, search_memories, save_memory tools       |
 |                                                                             |
 |   MCP SERVER       Protocol-based integration                               |
@@ -285,8 +285,8 @@ Works with [Clawd](https://github.com/moltbot/moltbot) (62k+ stars) - the popula
 **Quick setup:**
 
 ```bash
-# As Clawd extension
-cd ~/.clawd/extensions
+# As MoltBot extension
+cd ~/.moltbot/extensions
 git clone https://github.com/nhevers/claude-recall.git
 
 # Or via MCP
@@ -305,7 +305,7 @@ See [integrations/clawd/README.md](integrations/clawd/README.md) for full setup 
 ╔══════════════════════════════════════╗
 ║                                      ║
 ║   •  Node.js 18+  or  Bun 1.0+      ║
-║   •  Claude Code  or  Clawd          ║
+║   •  Claude Code  or  MoltBot          ║
 ║                                      ║
 ╚══════════════════════════════════════╝
 ```
