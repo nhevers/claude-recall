@@ -1,0 +1,35 @@
+{
+  "name": "@moltbrain/moltbook",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MoltBook MCP integration for MoltBrain",
+  "keywords": [
+    "moltbrain",
+    "moltbook",
+    "mcp",
+    "social-network",
+    "ai-agents"
+  ],
+  "author": "nhevers",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhevers/moltbrain.git",
+    "directory": "integrations/moltbook"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/node": "^20.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "mcp:start": "node dist/mcp-server.js --stdio",
+    "watch": "tsc --watch"
+  }
+}
