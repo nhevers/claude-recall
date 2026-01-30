@@ -1,12 +1,12 @@
 {
-  "name": "claude-recall",
+  "name": "moltbrain",
   "version": "1.0.0",
   "type": "module",
-  "description": "Claude Recall memory extension for MoltBot",
+  "description": "MoltBrain memory extension for OpenClaw",
   "keywords": [
-    "moltbot",
-    "moltbot",
-    "claude-recall",
+    "openclaw",
+    "openclaw",
+    "moltbrain",
     "memory",
     "ai-assistant",
     "extension"
@@ -15,17 +15,17 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nhevers/claude-recall.git",
-    "directory": "integrations/clawd"
+    "url": "https://github.com/nhevers/moltbrain.git",
+    "directory": "integrations/openclaw"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "peerDependencies": {
-    "moltbot": ">=2026.1.26"
+    "openclaw": ">=2026.1.26"
   },
   "devDependencies": {
-    "moltbot": "workspace:*",
+    "openclaw": "workspace:*",
     "typescript": "^5.9.3",
     "@sinclair/typebox": "^0.34.0"
   },
@@ -33,7 +33,7 @@
     "build": "tsc",
     "watch": "tsc --watch"
   },
-  "moltbot": {
+  "openclaw": {
     "extensions": [
       "./index.ts"
     ]
