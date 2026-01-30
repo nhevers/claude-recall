@@ -7,14 +7,14 @@
 </p>
 
 <p align="center">
-  <strong>Long-term memory layer for OpenClaw & MoltBook agents that learns and recalls your project context automatically.</strong>
+  <strong>Long-term memory layer for OpenClaw, MoltBook & Claude Code that learns and recalls your project context automatically.</strong>
 </p>
 
 <p align="center">
   <a href="#-quick-install">Install</a> •
   <a href="#-features">Features</a> •
   <a href="#-how-it-works">How It Works</a> •
-  <a href="#-clawd-integration">Clawd</a> •
+  <a href="#-openclaw-integration">OpenClaw</a> •
   <a href="#%EF%B8%8F-configuration">Config</a> •
   <a href="#-api">API</a>
 </p>
@@ -30,15 +30,15 @@
 ```
 ╔══════════════════════════════════════════════════════════════════════╗
 ║                                                                      ║
-║   Step 1    /plugin marketplace add nhevers/claude-recall            ║
-║   Step 2    /plugin install claude-recall                            ║
+║   Step 1    /plugin marketplace add nhevers/moltbrain                ║
+║   Step 2    /plugin install moltbrain                                ║
 ║                                                                      ║
 ╚══════════════════════════════════════════════════════════════════════╝
 ```
 
 </p>
 
-<p align="center"><em>That's it. claude-recall starts working automatically.</em></p>
+<p align="center"><em>That's it. MoltBrain starts working automatically.</em></p>
 
 ---
 
@@ -153,23 +153,23 @@
 
 ## ⚙️ Configuration
 
-Settings stored in `~/.claude-recall/settings.json`:
+Settings stored in `~/.moltbrain/settings.json`:
 
 ```
 ┌──────────────────────────────────────┬─────────┬────────────────────────────┐
 │             SETTING                  │ DEFAULT │        DESCRIPTION         │
 ├──────────────────────────────────────┼─────────┼────────────────────────────┤
-│ CLAUDE_RECALL_WORKER_PORT            │  37777  │ Worker service port        │
+│ MOLTBRAIN_WORKER_PORT                │  37777  │ Worker service port        │
 ├──────────────────────────────────────┼─────────┼────────────────────────────┤
-│ CLAUDE_RECALL_CONTEXT_OBSERVATIONS   │   50    │ Max observations to inject │
+│ MOLTBRAIN_CONTEXT_OBSERVATIONS       │   50    │ Max observations to inject │
 ├──────────────────────────────────────┼─────────┼────────────────────────────┤
-│ CLAUDE_RECALL_PROVIDER               │ claude  │ AI provider for summaries  │
+│ MOLTBRAIN_PROVIDER                   │ claude  │ AI provider for summaries  │
 ├──────────────────────────────────────┼─────────┼────────────────────────────┤
-│ CLAUDE_RECALL_PRUNE_DAYS             │    0    │ Auto-prune (0 = disabled)  │
+│ MOLTBRAIN_PRUNE_DAYS                 │    0    │ Auto-prune (0 = disabled)  │
 ├──────────────────────────────────────┼─────────┼────────────────────────────┤
-│ CLAUDE_RECALL_THEME                  │ system  │ UI theme (dark/light/sys)  │
+│ MOLTBRAIN_THEME                      │ system  │ UI theme (dark/light/sys)  │
 ├──────────────────────────────────────┼─────────┼────────────────────────────┤
-│ CLAUDE_RECALL_LOG_LEVEL              │  info   │ Logging verbosity level    │
+│ MOLTBRAIN_LOG_LEVEL                  │  info   │ Logging verbosity level    │
 └──────────────────────────────────────┴─────────┴────────────────────────────┘
 ```
 
@@ -180,11 +180,11 @@ Settings stored in `~/.claude-recall/settings.json`:
 ## 💻 CLI Commands
 
 ```bash
-claude-recall stats          # Show memory statistics
-claude-recall export         # Export to markdown  
-claude-recall tag <id> <t>   # Tag an observation
-claude-recall prune          # Manual cleanup
-claude-recall search <q>     # Search observations
+moltbrain stats          # Show memory statistics
+moltbrain export         # Export to markdown  
+moltbrain tag <id> <t>   # Tag an observation
+moltbrain prune          # Manual cleanup
+moltbrain search <q>     # Search observations
 ```
 
 <br>
@@ -194,7 +194,7 @@ claude-recall search <q>     # Search observations
 ## 📁 Project Structure
 
 ```
-claude-recall/
+moltbrain/
 │
 ├── 📊 benchmarks/         Performance tests
 ├── 🎨 contrib/            Community modes & themes
@@ -221,7 +221,7 @@ claude-recall/
 │   ├── favorites/         Bookmark system
 │   ├── filters/           Date/type/project filters
 │   ├── formatters/        Output formatters
-│   ├── mcp/               MCP server for Clawd
+│   ├── mcp/               MCP server for OpenClaw & MoltBook
 │   ├── shortcuts/         Keyboard shortcuts
 │   ├── themes/            Theme system
 │   └── validators/        Input validation
@@ -263,17 +263,17 @@ curl "http://localhost:37777/api/stats"
 
 ---
 
-## 🦞 MoltBot Integration
+## 🦞 OpenClaw Integration
 
-Works with [MoltBot](https://github.com/moltbot/moltbot) (97k+ stars) - the popular personal AI assistant!
+Works with [OpenClaw](https://github.com/openclaw/openclaw) (116k+ stars) - the popular personal AI assistant!
 
 ```
 +-----------------------------------------------------------------------------+
 |                                                                             |
-|   EXTENSION        Add to MoltBot's extensions/ folder                     |
+|   EXTENSION        Add to OpenClaw's extensions/ folder                     |
 |   ----------       Full lifecycle hooks integration                         |
 |                                                                             |
-|   SKILL            Install as a MoltBot skill                                |
+|   SKILL            Install as an OpenClaw skill                              |
 |   ----------       recall_context, search_memories, save_memory tools       |
 |                                                                             |
 |   MCP SERVER       Protocol-based integration                               |
@@ -285,22 +285,58 @@ Works with [MoltBot](https://github.com/moltbot/moltbot) (97k+ stars) - the popu
 **Quick setup:**
 
 ```bash
-# As MoltBot extension
-cd ~/.moltbot/extensions
-git clone https://github.com/nhevers/claude-recall.git claude-recall
-cd claude-recall/integrations/clawd
+# As OpenClaw extension
+cd ~/.openclaw/extensions
+git clone https://github.com/nhevers/moltbrain.git moltbrain
+cd moltbrain/integrations/openclaw
 npm install && npm run build
 
 # Enable the plugin (required for bundled installations)
-pnpm moltbot plugins enable claude-recall
+pnpm openclaw plugins enable moltbrain
 
 # Or via MCP
 npm run mcp:start
 ```
 
-**Note:** If installing as a bundled extension (in MoltBot's `extensions/` directory), you must explicitly enable it: `pnpm moltbot plugins enable claude-recall`
+**Note:** If installing as a bundled extension (in OpenClaw's `extensions/` directory), you must explicitly enable it: `pnpm openclaw plugins enable moltbrain`
 
-See [integrations/clawd/README.md](integrations/clawd/README.md) for full setup guide.
+See [integrations/openclaw/README.md](integrations/openclaw/README.md) for full setup guide.
+
+<br>
+
+---
+
+## 📚 MoltBook Integration
+
+Works with [MoltBook](https://moltbook.com) - the social network for AI agents! Share memories, learn from other agents, and build collective knowledge.
+
+**Quick setup:**
+
+```bash
+# Install MoltBook MCP integration
+npm install --save @moltbrain/moltbook-mcp
+
+# Configure in your MoltBrain settings
+{
+  "MOLTBRAIN_MOLTBOOK_ENABLED": true,
+  "MOLTBRAIN_MOLTBOOK_API_URL": "https://moltbook.com"
+}
+```
+
+See [integrations/moltbook/README.md](integrations/moltbook/README.md) for full setup guide.
+
+<br>
+
+---
+
+## 💻 Claude Code Integration
+
+Works with Claude Code via the plugin marketplace:
+
+```bash
+/plugin marketplace add nhevers/moltbrain
+/plugin install moltbrain
+```
 
 <br>
 
@@ -312,7 +348,7 @@ See [integrations/clawd/README.md](integrations/clawd/README.md) for full setup 
 ╔══════════════════════════════════════╗
 ║                                      ║
 ║   •  Node.js 18+  or  Bun 1.0+      ║
-║   •  Claude Code  or  MoltBot          ║
+║   •  OpenClaw, MoltBook, or Claude Code ║
 ║                                      ║
 ╚══════════════════════════════════════╝
 ```
@@ -334,7 +370,7 @@ AGPL-3.0
 </p>
 
 <p align="center">
-  <strong>Built with care for the Claude Code & Clawd community</strong>
+  <strong>Built with care for the OpenClaw, MoltBook & Claude Code community</strong>
 </p>
 
 <p align="center">
