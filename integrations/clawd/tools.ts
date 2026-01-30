@@ -1,9 +1,9 @@
 /**
- * MoltBot Skill Tools
- * Memory tools that can be invoked by MoltBot
+ * OpenClaw Skill Tools
+ * Memory tools that can be invoked by OpenClaw
  */
 
-import type { ClawdExtensionContext } from './index.js';
+import type { OpenClawExtensionContext } from './index.js';
 
 interface ToolResult {
   success: boolean;
@@ -29,19 +29,19 @@ interface SaveParams {
 }
 
 export class MemorySkill {
-  private context: ClawdExtensionContext;
+  private context: OpenClawExtensionContext;
 
-  constructor(context: ClawdExtensionContext) {
+  constructor(context: OpenClawExtensionContext) {
     this.context = context;
   }
 
   /**
-   * Get skill definition for MoltBot
+   * Get skill definition for OpenClaw
    */
   getDefinition() {
     return {
-      name: 'claude_recall',
-      displayName: 'Claude Recall Memory',
+      name: 'moltbrain',
+      displayName: 'MoltBrain Memory',
       description: 'Long-term memory that learns and recalls your context',
       tools: [
         {
@@ -220,7 +220,7 @@ export class MemorySkill {
    * Internal search implementation
    */
   private async performSearch(query: string, limit: number): Promise<unknown[]> {
-    // This will integrate with the main claude-recall search functionality
+    // This will integrate with the main moltbrain search functionality
     return [];
   }
 }
