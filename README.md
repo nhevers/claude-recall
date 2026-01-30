@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <strong>Long-term memory layer for OpenClaw, MoltBook & Claude Code that learns and recalls your project context automatically. $BRAIN CA available on my X @noahevers_</strong>
+  <strong>Long-term memory layer for OpenClaw, MoltBook & Claude Code that learns and recalls your project context automatically. $BRAIN CA 0x35e7942E91876Eb0c24A891128E559a744fe8B07 </strong>
 </p>
 
 <p align="center">
